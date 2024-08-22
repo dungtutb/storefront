@@ -1,0 +1,9 @@
+query CollectionList($first: Int = 9, $channel: String!) {
+	collections(first: $first, channel: $channel) {
+		edges {
+			node {
+				...CollectionListItem
+			}
+		}
+	}
+}

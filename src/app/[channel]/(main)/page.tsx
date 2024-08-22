@@ -11,7 +11,7 @@ export const metadata = {
 export default async function Page({ params }: { params: { channel: string } }) {
 	const data = await executeGraphQL(ProductListByCollectionDocument, {
 		variables: {
-			slug: "featured-products",
+			slug: "best-seller",
 			channel: params.channel,
 		},
 		revalidate: 60,

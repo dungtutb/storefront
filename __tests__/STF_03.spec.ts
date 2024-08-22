@@ -23,7 +23,7 @@ test("STF_03: Check if price are calculating correctly", async ({ page }) => {
 
 	await openCart({ page });
 
-	const totalPrice = (price * 2).toFixed(2);
+	const totalPrice = (price * 2).toLocaleString();
 	const productInCart = page.getByTestId("CartProductList").getByRole("listitem");
 	await expect(productInCart).toHaveCount(1);
 	await expect(productInCart).toContainText(product.name);

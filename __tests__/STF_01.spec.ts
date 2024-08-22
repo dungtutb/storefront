@@ -25,5 +25,5 @@ test("STF_01: Add items to the basket", async ({ page }) => {
 	await expect(productInCart).toHaveCount(1);
 	await expect(productInCart).toContainText(product.name);
 	await expect(productInCart).toContainText(`Qty: 1`);
-	await expect(productInCart).toContainText(price.toFixed(2));
+	await expect(productInCart).toContainText(price.toLocaleString());
 });

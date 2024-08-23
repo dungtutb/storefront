@@ -1,0 +1,9 @@
+query CategoryList($first: Int = 9) {
+	categories(first: $first) {
+		edges {
+			node {
+				...CategoryListItem
+			}
+		}
+	}
+}

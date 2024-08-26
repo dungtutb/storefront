@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { ProductListByCollectionDocument } from "@/gql/graphql";
 import { executeGraphQL } from "@/lib/graphql";
+import { LinkWithChannel } from "@/ui/atoms/LinkWithChannel";
 import { Footer } from "@/ui/components/Footer";
 
 export const metadata = {
@@ -26,7 +27,7 @@ export default async function Page({ params }: { params: { channel: string } }) 
 
 	return (
 		<>
-			<div className="bg-white pb-2 sm:pb-4 md:pb-6 lg:pb-8">
+			{/* <div className="bg-white pb-2 sm:pb-4 md:pb-6 lg:pb-8">
 				<div className="mx-auto max-w-screen-2xl px-4 md:px-8">
 					<header className="mb-4 flex items-center justify-between py-4 md:py-8">
 						<a
@@ -50,12 +51,7 @@ export default async function Page({ params }: { params: { channel: string } }) 
 							<a href="#" className="text-lg font-semibold text-indigo-500">
 								Trang chủ
 							</a>
-							<a
-								href="#"
-								className="text-lg font-semibold text-gray-600 transition duration-100 hover:text-indigo-500 active:text-indigo-700"
-							>
-								Mua tài khoản
-							</a>
+							
 							<a
 								href="#"
 								className="text-lg font-semibold text-gray-600 transition duration-100 hover:text-indigo-500 active:text-indigo-700"
@@ -114,7 +110,7 @@ export default async function Page({ params }: { params: { channel: string } }) 
 						</p>
 					</div>
 				</div>
-			</div>
+			</div> */}
 
 			<div className="bg-white pb-2 sm:pb-4 md:pb-6 lg:pb-8">
 				<div className="mx-auto max-w-screen-2xl px-8 md:px-16">
@@ -151,7 +147,7 @@ export default async function Page({ params }: { params: { channel: string } }) 
 								type="button"
 								className="mb-2 me-2 rounded-full bg-gray-950 px-5 py-2.5 text-sm font-medium text-white hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
 							>
-								<a href="#">Học tập</a>
+								<LinkWithChannel href={"/categories/app-ai"}>Học tập</LinkWithChannel>
 							</button>
 
 							{/* <h3 className="mb-2 text-center text-lg font-semibold md:text-xl">Growth</h3>
@@ -187,19 +183,8 @@ export default async function Page({ params }: { params: { channel: string } }) 
 								type="button"
 								className="mb-2 me-2 rounded-full bg-gray-950 px-5 py-2.5 text-sm font-medium text-white hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
 							>
-								<a href="#">AI</a>
+								<LinkWithChannel href={"/categories/app-ai"}>AI</LinkWithChannel>
 							</button>
-
-							{/* <h3 className="mb-2 text-center text-lg font-semibold md:text-xl">Growth</h3>
-							<p className="mb-2 text-center text-gray-500">
-								Filler text is dummy text which has no meaning however looks very similar to real text.
-							</p>
-							<a
-								href="#"
-								className="font-bold text-indigo-500 transition duration-100 hover:text-indigo-600 active:text-indigo-700"
-							>
-								More
-							</a> */}
 						</div>
 						<div className="flex flex-col items-center">
 							<div className="mb-2 flex h-16 w-16 items-center justify-center text-gray-950 sm:mb-4 md:h-16 md:w-16">
@@ -223,19 +208,8 @@ export default async function Page({ params }: { params: { channel: string } }) 
 								type="button"
 								className="mb-2 me-2 rounded-full bg-gray-950 px-5 py-2.5 text-sm font-medium text-white hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
 							>
-								<a href="#">Giải trí</a>
+								<LinkWithChannel href={"/categories/app-ai"}>Giải trí</LinkWithChannel>
 							</button>
-
-							{/* <h3 className="mb-2 text-center text-lg font-semibold md:text-xl">Growth</h3>
-							<p className="mb-2 text-center text-gray-500">
-								Filler text is dummy text which has no meaning however looks very similar to real text.
-							</p>
-							<a
-								href="#"
-								className="font-bold text-indigo-500 transition duration-100 hover:text-indigo-600 active:text-indigo-700"
-							>
-								More
-							</a> */}
 						</div>
 						<div className="flex flex-col items-center">
 							<div className="mb-2 flex h-16 w-16 items-center justify-center text-gray-950 sm:mb-4 md:h-16 md:w-16">
@@ -259,19 +233,8 @@ export default async function Page({ params }: { params: { channel: string } }) 
 								type="button"
 								className="mb-2 me-2 rounded-full bg-gray-950 px-5 py-2.5 text-sm font-medium text-white hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
 							>
-								<a href="#">Công việc</a>
+								<LinkWithChannel href={"/categories/app-ai"}>Công việc</LinkWithChannel>
 							</button>
-
-							{/* <h3 className="mb-2 text-center text-lg font-semibold md:text-xl">Growth</h3>
-							<p className="mb-2 text-center text-gray-500">
-								Filler text is dummy text which has no meaning however looks very similar to real text.
-							</p>
-							<a
-								href="#"
-								className="font-bold text-indigo-500 transition duration-100 hover:text-indigo-600 active:text-indigo-700"
-							>
-								More
-							</a> */}
 						</div>
 						<div className="flex flex-col items-center">
 							<div className="mb-2 flex h-16 w-16 items-center justify-center text-gray-950 sm:mb-4 md:h-16 md:w-16">
@@ -295,19 +258,8 @@ export default async function Page({ params }: { params: { channel: string } }) 
 								type="button"
 								className="mb-2 me-2 rounded-full bg-gray-950 px-5 py-2.5 text-sm font-medium text-white hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
 							>
-								<a href="#">Thiết kế</a>
+								<LinkWithChannel href={"/categories/app-ai"}>Thiết kế</LinkWithChannel>
 							</button>
-
-							{/* <h3 className="mb-2 text-center text-lg font-semibold md:text-xl">Growth</h3>
-							<p className="mb-2 text-center text-gray-500">
-								Filler text is dummy text which has no meaning however looks very similar to real text.
-							</p>
-							<a
-								href="#"
-								className="font-bold text-indigo-500 transition duration-100 hover:text-indigo-600 active:text-indigo-700"
-							>
-								More
-							</a> */}
 						</div>
 						<div className="flex flex-col items-center">
 							<div className="mb-2 flex h-16 w-16 items-center justify-center text-gray-950 sm:mb-4 md:h-16 md:w-16">
@@ -331,19 +283,8 @@ export default async function Page({ params }: { params: { channel: string } }) 
 								type="button"
 								className="mb-2 me-2 rounded-full bg-gray-950 px-5 py-2.5 text-sm font-medium text-white hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
 							>
-								<a href="#">Key/VPN/Proxy</a>
+								<LinkWithChannel href={"/categories/app-ai"}>Key/VPN/Proxy</LinkWithChannel>
 							</button>
-
-							{/* <h3 className="mb-2 text-center text-lg font-semibold md:text-xl">Growth</h3>
-							<p className="mb-2 text-center text-gray-500">
-								Filler text is dummy text which has no meaning however looks very similar to real text.
-							</p>
-							<a
-								href="#"
-								className="font-bold text-indigo-500 transition duration-100 hover:text-indigo-600 active:text-indigo-700"
-							>
-								More
-							</a> */}
 						</div>
 						<div className="flex flex-col items-center">
 							<div className="mb-2 flex h-16 w-16 items-center justify-center text-gray-950 sm:mb-4 md:h-16 md:w-16">
@@ -367,19 +308,8 @@ export default async function Page({ params }: { params: { channel: string } }) 
 								type="button"
 								className="mb-2 me-2 rounded-full bg-gray-950 px-5 py-2.5 text-sm font-medium text-white hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
 							>
-								<a href="#">Dating</a>
+								<LinkWithChannel href={"/categories/app-ai"}>Dating</LinkWithChannel>
 							</button>
-
-							{/* <h3 className="mb-2 text-center text-lg font-semibold md:text-xl">Growth</h3>
-							<p className="mb-2 text-center text-gray-500">
-								Filler text is dummy text which has no meaning however looks very similar to real text.
-							</p>
-							<a
-								href="#"
-								className="font-bold text-indigo-500 transition duration-100 hover:text-indigo-600 active:text-indigo-700"
-							>
-								More
-							</a> */}
 						</div>
 						<div className="flex flex-col items-center">
 							<div className="mb-2 flex h-16 w-16 items-center justify-center text-gray-950 sm:mb-4 md:h-16 md:w-16">
@@ -403,19 +333,8 @@ export default async function Page({ params }: { params: { channel: string } }) 
 								type="button"
 								className="mb-2 me-2 rounded-full bg-gray-950 px-5 py-2.5 text-sm font-medium text-white hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
 							>
-								<a href="#">Khuyến mãi</a>
+								<LinkWithChannel href={"/categories/app-ai"}>Khuyến mãi</LinkWithChannel>
 							</button>
-
-							{/* <h3 className="mb-2 text-center text-lg font-semibold md:text-xl">Growth</h3>
-							<p className="mb-2 text-center text-gray-500">
-								Filler text is dummy text which has no meaning however looks very similar to real text.
-							</p>
-							<a
-								href="#"
-								className="font-bold text-indigo-500 transition duration-100 hover:text-indigo-600 active:text-indigo-700"
-							>
-								More
-							</a> */}
 						</div>
 					</div>
 				</div>

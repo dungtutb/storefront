@@ -27,9 +27,9 @@ export default async function Page({ params }: { params: { channel: string } }) 
 
 	return (
 		<>
-			{/* <div className="bg-white pb-2 sm:pb-4 md:pb-6 lg:pb-8">
+			<div className="bg-white pb-2 sm:pb-4 md:pb-6 lg:pb-8">
 				<div className="mx-auto max-w-screen-2xl px-4 md:px-8">
-					<header className="mb-4 flex items-center justify-between py-4 md:py-8">
+					{/* <header className="mb-4 flex items-center justify-between py-4 md:py-8">
 						<a
 							href="/"
 							className="inline-flex items-center gap-2.5 text-2xl font-bold text-black md:text-3xl"
@@ -90,7 +90,7 @@ export default async function Page({ params }: { params: { channel: string } }) 
 							</svg>
 							Menu
 						</button>
-					</header>
+					</header> */}
 
 					<div className="mb-2 md:mb-4">
 						<div className="mx-auto mb-2 h-24 w-24 overflow-hidden rounded-full bg-gray-100 shadow-lg md:mb-4 md:h-32 md:w-32">
@@ -110,7 +110,7 @@ export default async function Page({ params }: { params: { channel: string } }) 
 						</p>
 					</div>
 				</div>
-			</div> */}
+			</div>
 
 			<div className="bg-white pb-2 sm:pb-4 md:pb-6 lg:pb-8">
 				<div className="mx-auto max-w-screen-2xl px-8 md:px-16">

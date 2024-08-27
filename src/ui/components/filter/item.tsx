@@ -3,7 +3,6 @@
 import clsx from 'clsx';
 import Link from 'next/link';
 import { usePathname, useSearchParams } from 'next/navigation';
-import { NavLink } from '../nav/components/NavLink';
 import { type SortFilterItem } from '@/lib/constans';
 
 export type ListItem = SortFilterItem | PathFilterItem;
@@ -14,7 +13,7 @@ function PathFilterItem({ item }: { item: PathFilterItem }) {
   const searchParams = useSearchParams();
   const active = pathname === item.path;
   const newParams = new URLSearchParams(searchParams.toString());
-  const DynamicTag = active ? 'p' : NavLink;
+  const DynamicTag = active ? 'p' : Link;
 
   newParams.delete('q');
 

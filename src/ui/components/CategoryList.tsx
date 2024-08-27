@@ -15,7 +15,7 @@ export async function CategoryList({ channel }: { channel: string }) {
 	});
 
 	const pathFilterItems: PathFilterItem[] | undefined = categories?.edges.map(({ node }) => ({
-		path: `/categories/${node.slug}`,
+		path: `/${channel}/categories/${node.slug}`,
 		title: node.name,
 	}));
 

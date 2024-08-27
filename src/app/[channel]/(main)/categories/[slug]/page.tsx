@@ -1,7 +1,8 @@
+import { type Metadata, type ResolvingMetadata } from "next";
 import { notFound } from "next/navigation";
-import { type ResolvingMetadata, type Metadata } from "next";
 import { ProductListByCategoryDocument } from "@/gql/graphql";
 import { executeGraphQL } from "@/lib/graphql";
+import { CategoryList } from "@/ui/components/CategoryList";
 import { ProductList } from "@/ui/components/ProductList";
 
 export const generateMetadata = async (
@@ -29,12 +30,21 @@ export default async function Page({ params }: { params: { slug: string; channel
 		notFound();
 	}
 
-	const { name, products } = category;
+	const { products } = category;
 
 	return (
 		<div className="mx-auto max-w-7xl p-8 pb-16">
-			<h1 className="pb-8 text-xl font-semibold">{name}</h1>
-			<ProductList products={products.edges.map((e) => e.node)} />
+			<div className="mx-auto flex max-w-screen-2xl flex-col gap-2 px-4 pb-4 text-black md:flex-row">
+				<div className="order-first w-full flex-none md:max-w-[125px]">
+					{<CategoryList channel={params.channel} />}
+				</div>
+				<div className="order-last min-h-screen w-full md:order-none">
+					<ProductList products={products.edges.map((e) => e.node)} />
+				</div>
+				{/* <div className="order-none flex-none md:order-last md:w-[125px]">
+							<FilterList list={sorting} title="Sort by" />
+						</div> */}
+			</div>
 		</div>
 	);
 }

@@ -1,46 +1,44 @@
+import { type PathFilterItem } from "../../filter/item";
 import { NavLink } from "./NavLink";
-import { MenuGetBySlugDocument } from "@/gql/graphql";
-import { executeGraphQL } from "@/lib/graphql";
 
-export const NavLinks = async ({ channel }: { channel: string }) => {
-	const navLinks = await executeGraphQL(MenuGetBySlugDocument, {
-		variables: { slug: "navbar", channel },
-		revalidate: 60 * 60 * 24,
-	});
+export const NavLinks = () => {
+	// const navLinks = await executeGraphQL(MenuGetBySlugDocument, {
+	// 	variables: { slug: "navbar", channel },
+	// 	revalidate: 60 * 60 * 24,
+	// });
+
+	const navLinks: PathFilterItem[] = [
+		{
+			title: "Mua tài khoản",
+			path: "/products"
+		},
+		{
+			title: "Lịch sử mua hàng",
+			path: "#"
+		},
+		{
+			title: "Tạo website con",
+			path: "#"
+		},
+		{
+			title: "Xem phim gì?",
+			path: "#"
+		},
+		{
+			title: "Quà tặng",
+			path: "#"
+		},
+	]
 
 	return (
 		<>
-			<NavLink href="/products">All</NavLink>
-			{navLinks.menu?.items?.map((item) => {
-				if (item.category) {
-					return (
-						<NavLink key={item.id} href={`/categories/${item.category.slug}`}>
-							{item.category.name}
-						</NavLink>
-					);
-				}
-				if (item.collection) {
-					return (
-						<NavLink key={item.id} href={`/collections/${item.collection.slug}`}>
-							{item.collection.name}
-						</NavLink>
-					);
-				}
-				if (item.page) {
-					return (
-						<NavLink key={item.id} href={`/pages/${item.page.slug}`}>
-							{item.page.title}
-						</NavLink>
-					);
-				}
-				if (item.url) {
-					return (
-						<NavLink key={item.id} href={item.url}>
-							{item.name}
-						</NavLink>
-					);
-				}
-				return null;
+			{/* <NavLink href="/products">All</NavLink> */}
+			{navLinks.map((item, index) => {
+				return (
+					<NavLink key={`nav-${index}`} href={item.path}>
+						{item.title}
+					</NavLink>
+				);
 			})}
 		</>
 	);

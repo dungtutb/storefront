@@ -1,5 +1,4 @@
 import { type ReactNode } from "react";
-import { CategoryList } from "@/ui/components/CategoryList";
 import { Footer } from "@/ui/components/Footer";
 import { Header } from "@/ui/components/Header";
 
@@ -12,17 +11,9 @@ export default function RootLayout(props: { children: ReactNode; params: { chann
 	return (
 		<>
 			<Header channel={props.params.channel} />
-			<div className="flex min-h-[calc(100dvh-64px)] flex-col">
-				<main className="flex-1">
-					<div className="mx-auto flex max-w-screen-2xl flex-col gap-8 px-4 pb-4 text-black md:flex-row dark:text-white">
-						<div className="order-first w-full flex-none md:max-w-[125px]">
-							{<CategoryList channel={props.params.channel} />}
-						</div>
-						<div className="order-last min-h-screen w-full md:order-none">{props.children}</div>
-						<div className="order-none flex-none md:order-last md:w-[125px]">
-							{/* <FilterList list={sorting} title="Sort by" /> */}
-						</div>
-					</div>
+			<div className="min-h-[calc(100dvh-64px)]">
+				<main>
+				{props.children}
 				</main>
 				<Footer channel={props.params.channel} />
 			</div>

@@ -1,11 +1,11 @@
 "use client";
 
-import { Fragment, type ReactNode } from "react";
 import { Dialog, Transition } from "@headlessui/react";
+import { Fragment, type ReactNode } from "react";
 import { Logo } from "../../Logo";
-import { useMobileMenu } from "./useMobileMenu";
-import { OpenButton } from "./OpenButton";
 import { CloseButton } from "./CloseButton";
+import { OpenButton } from "./OpenButton";
+import { useMobileMenu } from "./useMobileMenu";
 
 type Props = {
 	children: ReactNode;
@@ -19,7 +19,7 @@ export const MobileMenu = ({ children }: Props) => {
 			<OpenButton onClick={openMenu} aria-controls="mobile-menu" />
 			<Transition show={isOpen}>
 				<Dialog onClose={closeMenu}>
-					<Dialog.Panel className="fixed inset-0 z-20 flex h-dvh w-screen flex-col overflow-y-scroll">
+					<Dialog.Panel className="fixed inset-0 z-20 flex h-dvh w-screen flex-col overflow-y-scroll bg-white">
 						<Transition.Child
 							className="sticky top-0 z-10 flex h-16 shrink-0 bg-neutral-100/50 px-3 backdrop-blur-md sm:px-8"
 							enter="motion-safe:transition-all motion-safe:duration-150"

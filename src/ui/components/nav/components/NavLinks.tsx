@@ -1,7 +1,7 @@
 import { type PathFilterItem } from "../../filter/item";
 import { NavLink } from "./NavLink";
 
-export const NavLinks = () => {
+export const NavLinks = async ({ channel }: { channel: string }) => {
 	// const navLinks = await executeGraphQL(MenuGetBySlugDocument, {
 	// 	variables: { slug: "navbar", channel },
 	// 	revalidate: 60 * 60 * 24,
@@ -10,25 +10,30 @@ export const NavLinks = () => {
 	const navLinks: PathFilterItem[] = [
 		{
 			title: "Mua tài khoản",
-			path: "/products"
+			path: "/products",
+			channel: channel
 		},
 		{
 			title: "Lịch sử mua hàng",
-			path: "#"
+			path: "#",
+			channel: channel
 		},
 		{
 			title: "Tạo website con",
-			path: "#"
+			path: "#",
+			channel: channel
 		},
 		{
 			title: "Xem phim gì?",
-			path: "#"
+			path: "#",
+			channel: channel
 		},
 		{
 			title: "Quà tặng",
-			path: "#"
+			path: "#",
+			channel: channel
 		},
-	]
+	];
 
 	return (
 		<>

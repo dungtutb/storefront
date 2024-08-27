@@ -6,7 +6,7 @@ import { usePathname, useSearchParams } from 'next/navigation';
 import { type SortFilterItem } from '@/lib/constans';
 
 export type ListItem = SortFilterItem | PathFilterItem;
-export type PathFilterItem = { title: string; path: string };
+export type PathFilterItem = { title: string; path: string, channel?: string };
 
 function PathFilterItem({ item }: { item: PathFilterItem }) {
   const pathname = usePathname();

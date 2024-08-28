@@ -4,6 +4,7 @@ import { executeGraphQL } from "@/lib/graphql";
 import { LinkWithChannel } from "@/ui/atoms/LinkWithChannel";
 import { Footer } from "@/ui/components/Footer";
 import { Header } from "@/ui/components/Header";
+import { Carousel } from "@/ui/components/carousel";
 
 export const metadata = {
 	title: "ACME Storefront, powered by Saleor & Next.js",
@@ -24,7 +25,7 @@ export default async function Page({ params }: { params: { channel: string } }) 
 	// 	return null;
 	// }
 
-	// const products = data.collection?.products.edges.map(({ node: product }) => product);
+	// const products = data.collection?.products?.edges.map(({ node: product }) => product);
 
 	return (
 		<>
@@ -71,7 +72,8 @@ export default async function Page({ params }: { params: { channel: string } }) 
 									xmlns="http://www.w3.org/2000/svg"
 									fill="none"
 									viewBox="0 0 24 24"
-									width="64" height="64"
+									width="64"
+									height="64"
 									strokeWidth={1.5}
 									stroke="currentColor"
 									// className="size-6"
@@ -108,7 +110,8 @@ export default async function Page({ params }: { params: { channel: string } }) 
 									xmlns="http://www.w3.org/2000/svg"
 									fill="none"
 									viewBox="0 0 24 24"
-									width="64" height="64"
+									width="64"
+									height="64"
 									strokeWidth={1.5}
 									stroke="currentColor"
 								>
@@ -133,7 +136,8 @@ export default async function Page({ params }: { params: { channel: string } }) 
 									xmlns="http://www.w3.org/2000/svg"
 									fill="none"
 									viewBox="0 0 24 24"
-									width="64" height="64"
+									width="64"
+									height="64"
 									strokeWidth={1.5}
 									stroke="currentColor"
 								>
@@ -158,7 +162,8 @@ export default async function Page({ params }: { params: { channel: string } }) 
 									xmlns="http://www.w3.org/2000/svg"
 									fill="none"
 									viewBox="0 0 24 24"
-									width="64" height="64"
+									width="64"
+									height="64"
 									strokeWidth={1.5}
 									stroke="currentColor"
 								>
@@ -183,7 +188,8 @@ export default async function Page({ params }: { params: { channel: string } }) 
 									xmlns="http://www.w3.org/2000/svg"
 									fill="none"
 									viewBox="0 0 24 24"
-									width="64" height="64"
+									width="64"
+									height="64"
 									strokeWidth={1.5}
 									stroke="currentColor"
 								>
@@ -208,7 +214,8 @@ export default async function Page({ params }: { params: { channel: string } }) 
 									xmlns="http://www.w3.org/2000/svg"
 									fill="none"
 									viewBox="0 0 24 24"
-									width="64" height="64"
+									width="64"
+									height="64"
 									strokeWidth={1.5}
 									stroke="currentColor"
 								>
@@ -233,7 +240,8 @@ export default async function Page({ params }: { params: { channel: string } }) 
 									xmlns="http://www.w3.org/2000/svg"
 									fill="none"
 									viewBox="0 0 24 24"
-									width="64" height="64"
+									width="64"
+									height="64"
 									strokeWidth={1.5}
 									stroke="currentColor"
 								>
@@ -258,7 +266,8 @@ export default async function Page({ params }: { params: { channel: string } }) 
 									xmlns="http://www.w3.org/2000/svg"
 									fill="none"
 									viewBox="0 0 24 24"
-									width="64" height="64"
+									width="64"
+									height="64"
 									strokeWidth={1.5}
 									stroke="currentColor"
 								>
@@ -379,6 +388,12 @@ export default async function Page({ params }: { params: { channel: string } }) 
 					</div>
 				</div>
 			</div> */}
+
+			<div className="bg-white pb-2 sm:pb-4 md:pb-6 lg:pb-8">
+				<div className="mx-auto max-w-screen-2xl px-4 md:px-8">
+					<Carousel channel={params.channel}/>
+				</div>
+			</div>
 
 			<div className="bg-white py-6 sm:py-8 lg:py-12">
 				<div className="mx-auto max-w-screen-xl px-4 md:px-8">

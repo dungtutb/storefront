@@ -18,11 +18,11 @@ export const NavLinks = async ({ channel }: { channel: string }) => {
 			path: "#",
 			channel: channel
 		},
-		{
-			title: "Tạo website con",
-			path: "#",
-			channel: channel
-		},
+		// {
+		// 	title: "Tạo website con",
+		// 	path: "#",
+		// 	channel: channel
+		// },
 		{
 			title: "Xem phim gì?",
 			path: "#",

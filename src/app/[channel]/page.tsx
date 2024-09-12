@@ -7,9 +7,9 @@ import { Header } from "@/ui/components/Header";
 import { Carousel } from "@/ui/components/carousel";
 
 export const metadata = {
-	title: "ACME Storefront, powered by Saleor & Next.js",
+	title: "Thoa Tran Storefront",
 	description:
-		"Storefront Next.js Example for building performant e-commerce experiences with Saleor - the composable, headless commerce platform for global brands.",
+		"Storefront platform for global brands.",
 };
 
 export default async function Page({ params }: { params: { channel: string } }) {
@@ -21,9 +21,9 @@ export default async function Page({ params }: { params: { channel: string } }) 
 		revalidate: 60,
 	});
 
-	// if (!data.collection?.products) {
-	// 	return null;
-	// }
+	if (!data.collection?.products) {
+		return null;
+	}
 
 	// const products = data.collection?.products?.edges.map(({ node: product }) => product);
 
@@ -36,7 +36,7 @@ export default async function Page({ params }: { params: { channel: string } }) 
 					<div className="my-2 md:my-4">
 						<div className="mx-auto mb-2 h-24 w-24 overflow-hidden rounded-full bg-gray-100 shadow-lg md:mb-4 md:h-32 md:w-32">
 							<Image
-								src="https://images.unsplash.com/photo-1567515004624-219c11d31f2e??auto=format&q=75&fit=crop&w=256"
+								src={"/logo.png"}
 								alt="Photo by Radu Florin"
 								className="!relative h-full w-full object-cover object-center"
 								fill
@@ -310,9 +310,7 @@ export default async function Page({ params }: { params: { channel: string } }) 
 							</h2>
 							<div className="sm:h-30 sm:w-30 mb-2 h-24 w-24 overflow-hidden bg-gray-100 shadow-lg sm:mb-4 md:h-40 md:w-40">
 								<Image
-									src={
-										"https://images.unsplash.com/photo-1567515004624-219c11d31f2e??auto=format&q=75&fit=crop&w=500"
-									}
+									src={"/logo.png"}
 									width={200}
 									height={200}
 									alt={""}
@@ -326,9 +324,7 @@ export default async function Page({ params }: { params: { channel: string } }) 
 							</h2>
 							<div className="sm:h-30 sm:w-30 mb-2 h-24 w-24 overflow-hidden bg-gray-100 shadow-lg sm:mb-4 md:h-40 md:w-40">
 								<Image
-									src={
-										"https://images.unsplash.com/photo-1567515004624-219c11d31f2e??auto=format&q=75&fit=crop&w=500"
-									}
+									src={"/logo.png"}
 									width={200}
 									height={200}
 									alt={""}
@@ -342,9 +338,7 @@ export default async function Page({ params }: { params: { channel: string } }) 
 							</h2>
 							<div className="sm:h-30 sm:w-30 mb-2 h-24 w-24 overflow-hidden bg-gray-100 shadow-lg sm:mb-4 md:h-40 md:w-40">
 								<Image
-									src={
-										"https://images.unsplash.com/photo-1567515004624-219c11d31f2e??auto=format&q=75&fit=crop&w=500"
-									}
+									src={"/logo.png"}
 									width={200}
 									height={200}
 									alt={""}
@@ -395,7 +389,7 @@ export default async function Page({ params }: { params: { channel: string } }) 
 				</div>
 			</div>
 
-			<div className="bg-white py-6 sm:py-8 lg:py-12">
+			{/* <div className="bg-white py-6 sm:py-8 lg:py-12">
 				<div className="mx-auto max-w-screen-xl px-4 md:px-8">
 					<div className="mb-10 md:mb-16">
 						<h2 className="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-6 lg:text-3xl">
@@ -430,7 +424,7 @@ export default async function Page({ params }: { params: { channel: string } }) 
 						})}
 					</div>
 				</div>
-			</div>
+			</div> */}
 
 			<Footer channel={params.channel} />
 		</>

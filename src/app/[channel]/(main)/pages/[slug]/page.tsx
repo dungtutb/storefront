@@ -1,9 +1,9 @@
-import { notFound } from "next/navigation";
-import { type Metadata } from "next";
 import edjsHTML from "editorjs-html";
+import { type Metadata } from "next";
+import { notFound } from "next/navigation";
 import xss from "xss";
-import { PageGetBySlugDocument } from "@/gql/graphql";
 import { executeGraphQL } from "@/lib/graphql";
+import { PageGetBySlugDocument } from "@/gql/graphql";
 
 const parser = edjsHTML();
 
@@ -14,7 +14,7 @@ export const generateMetadata = async ({ params }: { params: { slug: string } })
 	});
 
 	return {
-		title: `${page?.seoTitle || page?.title || "Page"} · Saleor Storefront example`,
+		title: `${page?.seoTitle || page?.title || "Page"} ·  Thao Tran Shop`,
 		description: page?.seoDescription || page?.seoTitle || page?.title,
 	};
 };

@@ -22,7 +22,7 @@ export const Logo = () => {
 					width="95"
 					height="94"
 					viewBox="0 0 95 94"
-					className="h-auto w-6 text-indigo-500"
+					className="h-auto w-6 text-gray-800"
 					fill="currentColor"
 					xmlns="http://www.w3.org/2000/svg"
 				>

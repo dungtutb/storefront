@@ -7,8 +7,8 @@ import { Pagination } from "@/ui/components/Pagination";
 import { ProductList } from "@/ui/components/ProductList";
 
 export const metadata = {
-	title: "Products · Saleor Storefront example",
-	description: "All products in Saleor Storefront example",
+	title: "Products",
+	description: "All products Storefront",
 };
 
 export default async function Page({
@@ -47,17 +47,18 @@ export default async function Page({
 				</div>
 				<div className="order-last min-h-screen w-full md:order-none">
 					<ProductList products={products.edges.map((e) => e.node)} />
-				</div>
-				{/* <div className="order-none flex-none md:order-last md:w-[125px]">
-							<FilterList list={sorting} title="Sort by" />
-						</div> */}
-				<Pagination
+					<Pagination
 					pageInfo={{
 						...products.pageInfo,
 						basePathname: `/products`,
 						urlSearchParams: newSearchParams,
 					}}
 				/>
+				</div>
+				{/* <div className="order-none flex-none md:order-last md:w-[125px]">
+							<FilterList list={sorting} title="Sort by" />
+						</div> */}
+				
 			</div>
 
 			{/* <h2 className="sr-only">Product list</h2> */}

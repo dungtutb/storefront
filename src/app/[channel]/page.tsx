@@ -290,66 +290,6 @@ export default async function Page({ params }: { params: { channel: string } }) 
 			</div>
 
 			<div className="bg-white py-6 sm:py-8 lg:py-12">
-				<div className="mx-auto max-w-screen-xl px-4 md:px-8">
-					<div className="mb-4 md:mb-8">
-						<h2 className="mb-1 text-center text-2xl font-bold text-gray-800 md:mb-2 lg:text-3xl">
-							Thông tin liên hệ
-						</h2>
-
-						{/* <p className="mx-auto max-w-screen-md text-center text-gray-500 md:text-lg">
-							This is a section of some simple filler text, also known as placeholder text. It shares some
-							characteristics of a real written text but is random or otherwise generated.
-						</p> */}
-					</div>
-
-					<div className="grid grid-cols-3 gap-x-4 gap-y-8 lg:gap-x-8 lg:gap-y-12">
-						<div className="flex flex-col items-center">
-							<h2 className="mb-4 text-center text-xl font-bold text-gray-800 md:mb-6 lg:text-2xl">
-								<span>Tư vấn</span>
-							</h2>
-							<div className="sm:h-30 sm:w-30 mb-2 h-24 w-24 overflow-hidden bg-gray-100 shadow-lg sm:mb-4 md:h-40 md:w-40">
-								<Image
-									src={"/logo.png"}
-									width={200}
-									height={200}
-									alt={""}
-									className="h-full w-full object-cover object-center"
-								/>
-							</div>
-						</div>
-						<div className="flex flex-col items-center">
-							<h2 className="mb-4 text-center text-xl font-bold text-gray-800 md:mb-6 lg:text-2xl">
-								<span>Thanh toán</span>
-							</h2>
-							<div className="sm:h-30 sm:w-30 mb-2 h-24 w-24 overflow-hidden bg-gray-100 shadow-lg sm:mb-4 md:h-40 md:w-40">
-								<Image
-									src={"/logo.png"}
-									width={200}
-									height={200}
-									alt={""}
-									className="h-full w-full object-cover object-center"
-								/>
-							</div>
-						</div>
-						<div className="flex flex-col items-center">
-							<h2 className="mb-4 text-center text-xl font-bold text-gray-800 md:mb-6 lg:text-2xl">
-								<span>Bảo hành</span>
-							</h2>
-							<div className="sm:h-30 sm:w-30 mb-2 h-24 w-24 overflow-hidden bg-gray-100 shadow-lg sm:mb-4 md:h-40 md:w-40">
-								<Image
-									src={"/logo.png"}
-									width={200}
-									height={200}
-									alt={""}
-									className="h-full w-full object-cover object-center"
-								/>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<div className="bg-white py-6 sm:py-8 lg:py-12">
 				<div className="mx-auto max-w-screen-2xl px-4 md:px-8">
 					<div className="flex flex-col overflow-hidden rounded-lg bg-gray-900 sm:flex-row md:h-80">
 						<div className="flex w-full flex-col p-4 sm:w-1/2 sm:p-8 lg:w-2/5">

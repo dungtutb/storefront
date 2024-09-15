@@ -33,14 +33,14 @@ export default async function Page({ params }: { params: { channel: string } }) 
 					<Header channel={params.channel} />
 
 					<div className="my-2 md:my-4">
-						<div className="mx-auto mb-2 h-24 w-24 overflow-hidden rounded-full bg-gray-100 shadow-lg md:mb-4 md:h-32 md:w-32">
+						{/* <div className="mx-auto mb-2 h-24 w-24 overflow-hidden rounded-full bg-gray-100 shadow-lg md:mb-4 md:h-32 md:w-32">
 							<Image
 								src={"/logo.png"}
 								alt="Photo by Radu Florin"
 								className="!relative h-full w-full object-cover object-center"
 								fill
 							/>
-						</div>
+						</div> */}
 						<h2 className="mb-3 text-center text-3xl font-bold text-gray-800 md:mb-2 lg:text-3xl">
 							THOA TRAN
 						</h2>
@@ -296,27 +296,26 @@ export default async function Page({ params }: { params: { channel: string } }) 
 							<h2 className="mb-4 text-xl font-bold text-white md:text-2xl lg:text-4xl">
 								Giảm giá mùa khai giảng
 								<br />
-								Up to 50%
+								Lên tới 20%
 							</h2>
 
 							<p className="mb-8 max-w-md text-gray-400">
-								This is a section of some simple filler text, also known as placeholder text. It shares some
-								characteristics of a real written text.
+								Liên hệ ngay để được tư vấn
 							</p>
 
-							<div className="mt-auto">
+							{/* <div className="mt-auto">
 								<a
 									href="#"
 									className="inline-block rounded-lg bg-white px-8 py-3 text-center text-sm font-semibold text-gray-800 outline-none ring-indigo-300 transition duration-100 hover:bg-gray-100 focus-visible:ring active:bg-gray-200 md:text-base"
 								>
 									Mua ngay
 								</a>
-							</div>
+							</div> */}
 						</div>
 
 						<div className="order-first h-48 w-full bg-gray-700 sm:order-none sm:h-auto sm:w-1/2 lg:w-3/5">
 							<Image
-									src={"/banner.png"}
+									src={"/cover_shop.jpg"}
 									width={1000}
 									height={500}
 									alt={""}

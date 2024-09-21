@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { LinkWithChannel } from "../atoms/LinkWithChannel";
 
@@ -16,18 +17,15 @@ export const Logo = () => {
 		);
 	}
 	return (
-		<div className="flex items-center gap-2.5 text-2xl font-bold text-customBg-700 md:text-3xl">
+		<div className="text-customBg-700 flex items-center gap-2.5 text-2xl font-bold md:text-3xl">
 			<LinkWithChannel aria-label="homepage" href="/">
-				<svg
-					width="95"
-					height="94"
-					viewBox="0 0 95 94"
-					className="h-auto w-6 text-customBg-700"
-					fill="currentColor"
-					xmlns="http://www.w3.org/2000/svg"
-				>
-					<path d="M96 0V47L48 94H0V47L48 0H96Z" />
-				</svg>
+				<Image
+					src={"/logo_name.png"}
+					width={1024}
+					height={248}
+					alt={""}
+					className="h-full w-full object-cover object-center"
+				/>
 			</LinkWithChannel>
 		</div>
 	);

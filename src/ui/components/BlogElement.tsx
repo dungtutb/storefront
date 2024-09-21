@@ -36,7 +36,7 @@ export function BlogElement({ blog }: { blog: PageListItemFragment }) {
 					<div className="mt-auto flex items-end justify-between">
 						<div></div>
 						<span className="text-sm text-gray-400">
-							{blog.publishedAt ? new Date(blog.publishedAt).toLocaleDateString() : ""}
+							{blog.publishedAt ? new Date(blog.publishedAt).toLocaleDateString('vi-VN') : ""}
 						</span>
 					</div>
 				</div>

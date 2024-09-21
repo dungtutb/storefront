@@ -23,7 +23,7 @@ export const createAdyenCheckoutConfig = ({
 	clientKey,
 	onSubmit,
 	onAdditionalDetails,
-	locale: "en-US",
+	locale: "vi-VN",
 	analytics: {
 		enabled: true,
 	},

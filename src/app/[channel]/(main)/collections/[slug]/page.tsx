@@ -1,5 +1,5 @@
+import { type Metadata, type ResolvingMetadata } from "next";
 import { notFound } from "next/navigation";
-import { type ResolvingMetadata, type Metadata } from "next";
 import { ProductListByCollectionDocument } from "@/gql/graphql";
 import { executeGraphQL } from "@/lib/graphql";
 import { ProductList } from "@/ui/components/ProductList";
@@ -9,7 +9,7 @@ export const generateMetadata = async (
 	parent: ResolvingMetadata,
 ): Promise<Metadata> => {
 	const { collection } = await executeGraphQL(ProductListByCollectionDocument, {
-		variables: { slug: params.slug, channel: params.channel },
+		variables: { slug: params.slug, channel: params.channel, first: 100 },
 		revalidate: 60,
 	});
 
@@ -22,7 +22,7 @@ export const generateMetadata = async (
 
 export default async function Page({ params }: { params: { slug: string; channel: string } }) {
 	const { collection } = await executeGraphQL(ProductListByCollectionDocument, {
-		variables: { slug: params.slug, channel: params.channel },
+		variables: { slug: params.slug, channel: params.channel, first: 100 },
 		revalidate: 60,
 	});
 

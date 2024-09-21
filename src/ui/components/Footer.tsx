@@ -1,11 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
+import { LinkWithChannel } from "../atoms/LinkWithChannel";
+import { executeGraphQL } from "@/lib/graphql";
+import { MenuGetBySlugDocument } from "@/gql/graphql";
 
 export async function Footer({ channel }: { channel: string }) {
-	// const footerLinks = await executeGraphQL(MenuGetBySlugDocument, {
-	// 	variables: { slug: "footer", channel },
-	// 	revalidate: 60 * 60 * 24,
-	// });
+	const footerLinks = await executeGraphQL(MenuGetBySlugDocument, {
+		variables: { slug: "footer", channel },
+		revalidate: 60 * 60 * 24,
+	});
 	// const channels = process.env.SALEOR_APP_TOKEN
 	// 	? await executeGraphQL(ChannelsListDocument, {
 	// 			withAuth: false, // disable cookie-based auth for this call
@@ -20,11 +23,11 @@ export async function Footer({ channel }: { channel: string }) {
 	return (
 		<footer className="border-neutral-300 bg-neutral-50">
 			<div className="mx-auto max-w-7xl px-4 lg:px-8">
-				{/* <div className="grid grid-cols-3 gap-8 py-16">
+				<div className="grid grid-cols-2 gap-8 py-8">
 					{footerLinks.menu?.items?.map((item) => {
 						return (
 							<div key={item.id}>
-								<h3 className="text-sm font-semibold text-neutral-900">{item.name}</h3>
+								<h3 className="text-xl font-semibold text-neutral-900">{item.name}</h3>
 								<ul className="mt-4 space-y-4 [&>li]:text-neutral-500">
 									{item.children?.map((child) => {
 										if (child.category) {
@@ -61,7 +64,11 @@ export async function Footer({ channel }: { channel: string }) {
 												</li>
 											);
 										}
-										return null;
+										// return (
+										// 	<li key={child.id} className="text-sm">
+										// 			<Link href={"#"}>{child.name}</Link>
+										// 	</li>
+										// )
 									})}
 								</ul>
 							</div>
@@ -69,7 +76,7 @@ export async function Footer({ channel }: { channel: string }) {
 					})}
 				</div>
 
-				{channels?.channels && (
+				{/* {channels?.channels && (
 					<div className="mb-4 text-neutral-500">
 						<label>
 							<span className="text-sm">Change currency:</span> <ChannelSelect channels={channels.channels} />
@@ -78,8 +85,8 @@ export async function Footer({ channel }: { channel: string }) {
 				)} */}
 
 				<div className="flex flex-col justify-between border-t border-neutral-200 py-10 sm:flex-row">
-					<p className="text-sm text-neutral-500">Copyright &copy; {currentYear} Thoa Tran Shop, Inc. <span className="hidden">{channel}</span></p>
-					<p className="flex gap-1 text-sm text-neutral-500">
+					<p className="text-sm text-customBg-700">Copyright &copy; {currentYear} taikhoanbk.com. <span className="hidden">{channel}</span></p>
+					<p className="flex gap-1 text-sm text-customBg-700">
 						Powered by{" "}
 						<Link target={"_blank"} href={"https://github.com/dungpn0"}>
 							dungpn0

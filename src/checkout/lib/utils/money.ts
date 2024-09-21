@@ -12,7 +12,7 @@ export const getFormattedMoney = <TMoney extends Money>(money: MightNotExist<TMo
 
 	const { amount, currency } = money;
 
-	return new Intl.NumberFormat("en-US", {
+	return new Intl.NumberFormat("vi-VN", {
 		style: "currency",
 		currency,
 		currencyDisplay: "symbol",

@@ -7,6 +7,21 @@ const config: Config = {
 	content: ["./src/**/*.{ts,tsx}"],
 	theme: {
 		extend: {
+			colors: {
+				customBg: {
+					50: '#bebec3',  // Màu sáng nhất
+					100: '#b0b0c0',
+					200: '#9998be',
+					300: '#8281bf',
+					400: '#7371c1',
+					500: '#5f5dc0',
+					600: '#4948c3',	 
+					700: '#3230c2',  // Màu chính
+					800: '#1e1cc3',
+					900: '#0e0cc5',  // Màu đậm nhất
+					950: '#0300c5',  // Màu đậm nhất
+				}
+			  },
 		//   fontFamily: {
 		// 	sans: ['var(--font-geist-sans)']
 		//   },

@@ -50,7 +50,7 @@ export function createAdyenCheckoutInstance(
 	},
 ) {
 	return AdyenCheckout({
-		locale: "en-US",
+		locale: "vi-VN",
 		environment: "test",
 		clientKey: adyenSessionResponse.clientKey,
 		session: {

@@ -34,7 +34,7 @@ export const useSummaryLineLineAttributesText = (line: CheckoutLineFragment | Or
 					}
 
 					if (dateTime) {
-						return new Intl.DateTimeFormat("EN-US", { dateStyle: "medium" }).format(new Date(dateTime));
+						return new Intl.DateTimeFormat("vi-VN", { dateStyle: "medium" }).format(new Date(dateTime));
 					}
 
 					return name;

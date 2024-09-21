@@ -8,6 +8,7 @@ export async function Carousel({ channel }: { channel: string }) {
 		variables: {
 			slug: "best-seller",
 			channel: channel,
+			first: 100
 		},
 		revalidate: 60,
 	});

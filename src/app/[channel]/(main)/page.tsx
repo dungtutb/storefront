@@ -12,6 +12,7 @@ export default async function Page({ params }: { params: { channel: string } }) 
 		variables: {
 			slug: "best-seller",
 			channel: params.channel,
+			first: 100
 		},
 		revalidate: 60,
 	});

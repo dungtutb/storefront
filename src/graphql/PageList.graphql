@@ -1,0 +1,26 @@
+query PageList(
+	$pageTypes: [ID!]
+	$search: String
+	$sortBy: PageSortField!
+	$sortDirection: OrderDirection!
+	$first: Int!
+	$after: String
+) {
+	pages(
+		first: $first
+		after: $after
+		sortBy: { field: $sortBy, direction: $sortDirection }
+		filter: { pageTypes: $pageTypes, search: $search }
+	) {
+		edges {
+			node {
+				...PageListItem
+			}
+			cursor
+		}
+		pageInfo {
+			endCursor
+			hasNextPage
+		}
+	}
+}

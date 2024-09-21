@@ -1,0 +1,9 @@
+fragment PageListItem on Page {
+	id
+	title
+	slug
+	seoDescription
+	seoTitle
+	content
+	publishedAt
+}

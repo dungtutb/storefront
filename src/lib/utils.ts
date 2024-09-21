@@ -1,9 +1,9 @@
 export const formatDate = (date: Date | number) => {
-	return new Intl.DateTimeFormat("en-US", { dateStyle: "medium" }).format(date);
+	return new Intl.DateTimeFormat("vi-VN", { dateStyle: "medium" }).format(date);
 };
 
 export const formatMoney = (amount: number, currency: string) =>
-	new Intl.NumberFormat("en-US", {
+	new Intl.NumberFormat("vi-VN", {
 		style: "currency",
 		currency,
 	}).format(amount);

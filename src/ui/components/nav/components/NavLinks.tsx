@@ -44,7 +44,7 @@ export const NavLinks = async ({ channel, mobile }: { channel: string; mobile: b
 			channel: channel
 		},
 		{
-			title: "ĐẠT VÉ CGV",
+			title: "ĐẶT VÉ CGV",
 			path: "/cgv",
 			channel: channel
 		},

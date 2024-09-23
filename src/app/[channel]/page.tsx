@@ -65,6 +65,17 @@ export default async function Page({ params }: { params: { channel: string } }) 
 			</div>
 
 			<div className="bg-gray-100 py-2 md:py-4">
+				<div className="mx-auto max-w-screen-xl px-4 md:px-8">
+					<h2 className="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-6 lg:text-3xl">
+						<span>Top bán chạy</span>
+					</h2>
+					{data.collection?.products && (
+						<ProductList products={data.collection?.products?.edges.map((e) => e.node)} />
+					)}
+				</div>
+			</div>
+
+			<div className="bg-gray-100 py-2 md:py-4">
 				<div className="mx-auto max-w-7xl px-4 md:px-8">
 					<div className="grid grid-cols-2 gap-2 md:grid-cols-4 md:gap-4 lg:gap-8	">
 						<div className="flex gap-2 rounded-lg bg-white p-2 hover:border-customBg-600 lg:gap-4">
@@ -79,7 +90,7 @@ export default async function Page({ params }: { params: { channel: string } }) 
 							</div>
 
 							<div>
-								<h3 className="text-sm font-semibold text-customBg-700 md:text-base lg:text-lg">
+								<h3 className="text-sm font-semibold text-gray-950 md:text-base lg:text-lg">
 									Phần mềm bản quyền
 								</h3>
 								<p className="text-sm text-gray-500 lg:text-base">100% từ nhà phát triển</p>
@@ -98,7 +109,7 @@ export default async function Page({ params }: { params: { channel: string } }) 
 							</div>
 
 							<div>
-								<h3 className="text-sm font-semibold text-customBg-700 md:text-base lg:text-lg">
+								<h3 className="text-sm font-semibold text-gray-950 md:text-base lg:text-lg">
 									Chính sách bảo hành
 								</h3>
 								<p className="text-sm text-gray-500 lg:text-base">Bảo hành cụ thể theo từng sản phẩm</p>
@@ -117,7 +128,7 @@ export default async function Page({ params }: { params: { channel: string } }) 
 							</div>
 
 							<div>
-								<h3 className="text-sm font-semibold text-customBg-700 md:text-base lg:text-lg">
+								<h3 className="text-sm font-semibold text-gray-950 md:text-base lg:text-lg">
 									Thêm mới sản phẩm
 								</h3>
 								<p className="text-sm text-gray-500 lg:text-base">
@@ -138,7 +149,7 @@ export default async function Page({ params }: { params: { channel: string } }) 
 							</div>
 
 							<div>
-								<h3 className="text-sm font-semibold text-customBg-700 md:text-base lg:text-lg">
+								<h3 className="text-sm font-semibold text-gray-950 md:text-base lg:text-lg">
 									Hội viên VIP
 								</h3>
 								<p className="text-sm text-gray-500 lg:text-base">
@@ -151,17 +162,6 @@ export default async function Page({ params }: { params: { channel: string } }) 
 							</div>
 						</div>
 					</div>
-				</div>
-			</div>
-
-			<div className="bg-gray-100 py-2 md:py-4">
-				<div className="mx-auto max-w-screen-xl px-4 md:px-8">
-					<h2 className="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-6 lg:text-3xl">
-						<span>Top bán chạy</span>
-					</h2>
-					{data.collection?.products && (
-						<ProductList products={data.collection?.products?.edges.map((e) => e.node)} />
-					)}
 				</div>
 			</div>
 

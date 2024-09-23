@@ -22,7 +22,7 @@ export async function Footer({ channel }: { channel: string }) {
 
 	return (
 		<footer className="border-neutral-300 bg-neutral-50">
-			<div className="mx-auto max-w-7xl px-4 lg:px-8">
+			<div className="mx-auto max-w-7xl px-4 md:px-8">
 				<div className="grid grid-cols-2 gap-8 py-8">
 					{footerLinks.menu?.items?.map((item) => {
 						return (

@@ -15,7 +15,7 @@ export const NavLinks = async ({ channel, mobile }: { channel: string; mobile: b
 		},
 		{
 			title: "HỌC TẬP",
-			path: "#",
+			path: "/categories/hoc-tap",
 			channel: channel
 		},
 		// {
@@ -25,32 +25,32 @@ export const NavLinks = async ({ channel, mobile }: { channel: string; mobile: b
 		// },
 		{
 			title: "GIẢI TRÍ",
-			path: "#",
+			path: "/categories/giai-tri",
 			channel: channel
 		},
 		{
 			title: "THIẾT KẾ",
-			path: "#",
+			path: "/categories/thiet-ke",
 			channel: channel
 		},
 		{
 			title: "CÔNG VIỆC",
-			path: "#",
+			path: "/categories/cong-viec",
 			channel: channel
 		},
 		{
 			title: "VPN",
-			path: "#",
+			path: "/categories/keyvpnproxy",
 			channel: channel
 		},
 		{
 			title: "ĐẠT VÉ CGV",
-			path: "#",
+			path: "/cgv",
 			channel: channel
 		},
 		{
 			title: "BLOGS",
-			path: "#",
+			path: "/blogs",
 			channel: channel
 		},
 

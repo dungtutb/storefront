@@ -1,51 +1,84 @@
-import Link from "next/link";
-import { GridTileImage } from "./grid/tile";
-import { ProductListByCollectionDocument } from "@/gql/graphql";
-import { executeGraphQL } from "@/lib/graphql";
+'use client';
 
-export async function Carousel({ channel }: { channel: string }) {
-	const data = await executeGraphQL(ProductListByCollectionDocument, {
-		variables: {
-			slug: "best-seller",
-			channel: channel,
-			first: 100
-		},
-		revalidate: 60,
-	});
+import Image from "next/image";
+import { useEffect, useState } from "react";
 
-	if (!data.collection?.products) {
-		return null;
-	}
+export function Carousel({ images }: { images: string[] }) {
+	const [currentIndex, setCurrentIndex] = useState(0);
+	const delay = 3000; // Time interval for auto sliding (e.g., 3 seconds)
 
-	const products = data.collection?.products?.edges.map(({ node: product }) => product);
+	const prevSlide = () => {
+		const isFirstSlide = currentIndex === 0;
+		const newIndex = isFirstSlide ? images.length - 1 : currentIndex - 1;
+		setCurrentIndex(newIndex);
+	};
 
-	const carouselProducts = [...products, ...products, ...products];
+	const nextSlide = () => {
+		const isLastSlide = currentIndex === images.length - 1;
+		const newIndex = isLastSlide ? 0 : currentIndex + 1;
+		setCurrentIndex(newIndex);
+	};
+
+	// Automatically update the slide index every few seconds
+	useEffect(() => {
+		const interval = setInterval(() => {
+		  setCurrentIndex((prevIndex) =>
+			prevIndex === images.length - 1 ? 0 : prevIndex + 1
+		  );
+		}, delay);
+	
+		// Clean up the interval on component unmount
+		return () => clearInterval(interval);
+	  }, [images.length]);
 
 	return (
-		<div className="w-full overflow-x-hidden pb-6 pt-1">
-			<ul className="animate-carousel flex gap-4">
-				{carouselProducts.map((product, i) => (
-					<li
-						key={`${product.id}${i}`}
-						className="relative aspect-square h-[30vh] max-h-[275px] w-2/3 max-w-[475px] flex-none md:w-1/3"
-					>
-						{product?.thumbnail?.url && (<Link href={product?.thumbnail?.url} className="relative h-full w-full">
-							<GridTileImage
-								alt={product.thumbnail.alt ?? ""}
-								label={{
-									title: product.name,
-									// amount: product.priceRange.maxVariantPrice.amount,
-									// currencyCode: product.priceRange.maxVariantPrice.currencyCode,
-								}}
-								src={product?.thumbnail?.url}
-								fill
-								sizes="(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 50vw"
+		<div className="group relative mx-auto w-full max-w-7xl overflow-hidden">
+			{/* Slider Container */}
+			<div
+				className="flex transition-transform duration-700 ease-in-out"
+				style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+			>
+				{images.map((image, index) => (
+					<div key={index} className="w-full flex-shrink-0">
+						<Image
+								src={image}
+								width={2000}
+								height={1000}
+								alt={`Slide ${index + 1}`}
+								className="h-full w-full object-cover object-center"
 							/>
-						</Link>)
-}
-					</li>
+				  </div>
 				))}
-			</ul>
+			</div>
+
+			{/* Left Arrow */}
+			<div
+				className="absolute left-5 top-1/2 -translate-y-1/2 transform cursor-pointer rounded-full bg-gray-100 p-2 opacity-30 group-hover:opacity-60"
+				onClick={prevSlide}
+			>
+				‹
+			</div>
+
+			{/* Right Arrow */}
+			<div
+				className="absolute right-5 top-1/2 -translate-y-1/2 transform cursor-pointer rounded-full bg-gray-100 p-2 opacity-30 group-hover:opacity-60"
+				onClick={nextSlide}
+			>
+				›
+			</div>
+
+			{/* Indicator dots */}
+			<div className="absolute bottom-5 left-1/2 flex -translate-x-1/2 transform space-x-2">
+				{images.map((_, index) => (
+					<div
+						key={index}
+						className={`h-3 w-3 cursor-pointer rounded-full bg-gray-300 opacity-40 ${
+							currentIndex === index ? "bg-gray-700 opacity-70" : "bg-gray-300"
+						}`}
+						onClick={() => setCurrentIndex(index)}
+					></div>
+				))}
+			</div>
 		</div>
 	);
 }

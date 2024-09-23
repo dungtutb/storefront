@@ -38,7 +38,7 @@ export default async function Page({ params }: { params: { channel: string } }) 
 		revalidate: 60,
 	});
 
-	const images = ["/banner.jpg", "/banner.jpg", "/banner.jpg"];
+	const images = ["/banner.jpg", "/banner_1.jpg"];
 
 	return (
 		<>

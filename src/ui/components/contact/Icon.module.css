@@ -1,5 +1,6 @@
 .zalo-icon,
-.call-icon {
+.call-icon,
+.facebook-icon {
 	position: fixed;
 	right: 20px;
 	width: 50px;
@@ -10,7 +11,7 @@
 
 /* Đặt icon Zalo ở vị trí đáy */
 .zalo-icon {
-	bottom: 80px; /* Điều chỉnh khoảng cách nếu cần */
+	bottom: 140px; /* Điều chỉnh khoảng cách nếu cần */
 }
 
 /* Đặt icon gọi điện ngay bên dưới icon Zalo */
@@ -19,9 +20,14 @@
 	color: green;
 }
 
+.facebook-icon {
+	bottom: 80px;
+}
+
 /* Hiệu ứng rung lắc ngang khi di chuột */
 .zalo-icon:hover,
-.call-icon:hover {
+.call-icon:hover,
+.facebook-icon:hover {
 	animation: shake-horizontal 0.5s;
 	animation-iteration-count: infinite;
 }

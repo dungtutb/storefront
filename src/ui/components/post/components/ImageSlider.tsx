@@ -1,4 +1,3 @@
-"use client";
 import { Carousel } from "../../Carousel";
 import { getStrapiMedia } from "../ultis/api-helper";
 import { type FileItem } from "@/app/[channel]/(main)/blogs/[slug]/page";

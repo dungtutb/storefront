@@ -26,6 +26,19 @@ export interface Article {
 	};
 }
 
+export interface Meta {
+	pagination: {
+		start: number;
+		limit: number;
+		total: number;
+	};
+}
+
+export interface APIResponse {
+	data: Article[]; // Define the Article interface as per your API response
+	meta: Meta; // Meta interface as previously defined
+}
+
 export function PostList({ data: articles, children }: { data: Article[]; children?: React.ReactNode }) {
 	return (
 		<>

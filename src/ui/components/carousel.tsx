@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-export function Carousel({ images }: { images: string[] }) {
+export function Carousel({ images }: { images: (string | null) [] }) {
 	const [currentIndex, setCurrentIndex] = useState(0);
 	const delay = 3000; // Time interval for auto sliding (e.g., 3 seconds)
 
@@ -41,7 +41,7 @@ export function Carousel({ images }: { images: string[] }) {
 				{images.map((image, index) => (
 					<div key={index} className="w-full flex-shrink-0">
 						<Image
-								src={image}
+								src={image? image: ""}
 								width={2000}
 								height={1000}
 								alt={`Slide ${index + 1}`}

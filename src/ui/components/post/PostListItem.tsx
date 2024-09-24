@@ -15,7 +15,7 @@ export function PostListItem({ article }: { article: Article }) {
 		<div className="flex flex-col overflow-hidden rounded-lg border bg-white">
 				<LinkWithChannel
 					href={"/blogs/" + article.slug}
-					className="group relative block h-48 overflow-hidden bg-gray-100 md:h-64"
+					className="group relative block h-48 overflow-hidden bg-gray-100"
 				>
 					{imageUrl && (<Image
 						src={imageUrl}
@@ -53,7 +53,7 @@ export function PostListItem({ article }: { article: Article }) {
 						</div>
 					</div>
 
-					<LinkWithChannel href={"/pages/" + article.slug} className="px-2 py-2 text-sm text-gray-500">
+					<LinkWithChannel href={"/blogs/" + article.slug} className="px-2 py-2 text-sm text-gray-500">
 						{article.publishedAt ? new Date(article.publishedAt).toLocaleDateString("vi-VN") : ""}
 					</LinkWithChannel>
 				</div>

@@ -50,7 +50,7 @@ export const NavLinks = async ({ channel, mobile }: { channel: string; mobile: b
 		},
 		{
 			title: "BLOGS",
-			path: "/pages",
+			path: "/blogs",
 			channel: channel
 		},
 

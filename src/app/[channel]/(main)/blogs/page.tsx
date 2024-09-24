@@ -1,8 +1,8 @@
 "use client";
 import { useCallback, useEffect, useState } from "react";
+import { type Article, PostList } from "../../../../ui/components/post/PostList";
+import { fetchAPI } from "../../../../ui/components/post/ultis/fetch-api";
 import Loading from "../products/loading";
-import { type Article, PostList } from "./components/PostList";
-import { fetchAPI } from "./ultis/fetch-api";
 
 interface Meta {
 	pagination: {
@@ -82,20 +82,22 @@ export default function Profile() {
 	if (isLoading) return <Loading />;
 
 	return (
-		<div>
-			<PostList data={data}>
-				{meta!.pagination.start + meta!.pagination.limit < meta!.pagination.total && (
-					<div className="flex justify-center">
-						<button
-							type="button"
-							className="rounded-lg px-6 py-3 text-sm hover:underline dark:bg-gray-900 dark:text-gray-400"
-							onClick={loadMorePosts}
-						>
-							Load more posts...
-						</button>
-					</div>
-				)}
-			</PostList>
+		<div className="bg-gray-200 py-2 md:py-4">
+			<div className="mx-auto max-w-7xl px-4 md:px-8">
+				<PostList data={data}>
+					{meta!.pagination.start + meta!.pagination.limit < meta!.pagination.total && (
+						<div className="flex justify-center">
+							<button
+								type="button"
+								className="rounded-lg px-6 py-3 text-sm hover:underline dark:bg-gray-900 dark:text-gray-400"
+								onClick={loadMorePosts}
+							>
+								Xem thêm...
+							</button>
+						</div>
+					)}
+				</PostList>
+			</div>
 		</div>
 	);
 }

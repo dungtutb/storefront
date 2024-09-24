@@ -1,6 +1,6 @@
 import Image from "next/image";
-import { getStrapiMedia } from "../ultis/api-helper";
 import { type Article } from "./PostList";
+import { getStrapiMedia } from "./ultis/api-helper";
 import { LinkWithChannel } from "@/ui/atoms/LinkWithChannel";
 
 // const parser = edjsHTML();
@@ -14,7 +14,7 @@ export function PostListItem({ article }: { article: Article }) {
 	return (
 		<div className="flex flex-col overflow-hidden rounded-lg border bg-white">
 				<LinkWithChannel
-					href={"/pages/" + article.slug}
+					href={"/blogs/" + article.slug}
 					className="group relative block h-48 overflow-hidden bg-gray-100 md:h-64"
 				>
 					{imageUrl && (<Image
@@ -29,7 +29,7 @@ export function PostListItem({ article }: { article: Article }) {
 			<div className="flex flex-col p-4 sm:p-6">
 				<h2 className="mb-2 text-lg font-semibold text-gray-800">
 					<LinkWithChannel
-						href={"/pages/" + article.slug}
+						href={"/blogs/" + article.slug}
 						className="transition duration-100 hover:text-customBg-500 active:text-customBg-600"
 					>
 						{article.title}

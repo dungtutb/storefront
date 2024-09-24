@@ -1,9 +1,9 @@
 import { SignInFormContainer, type SignInFormContainerProps } from "../Contact/SignInFormContainer";
-import { PasswordInput } from "@/checkout/components/PasswordInput";
 import { Checkbox } from "@/checkout/components/Checkbox";
+import { PasswordInput } from "@/checkout/components/PasswordInput";
 import { TextInput } from "@/checkout/components/TextInput";
-import { useGuestUserForm } from "@/checkout/sections/GuestUser/useGuestUserForm";
 import { FormProvider } from "@/checkout/hooks/useForm/FormProvider";
+import { useGuestUserForm } from "@/checkout/sections/GuestUser/useGuestUserForm";
 
 type GuestUserProps = Pick<SignInFormContainerProps, "onSectionChange"> & {
 	onEmailChange: (email: string) => void;
@@ -21,9 +21,9 @@ export const GuestUser: React.FC<GuestUserProps> = ({
 
 	return (
 		<SignInFormContainer
-			title="Contact details"
-			redirectSubtitle="Already have an account?"
-			redirectButtonLabel="Sign in"
+			title="Chi tiết liên hệ"
+			redirectSubtitle="Bạn đã có tài khoản chưa?"
+			redirectButtonLabel="Đăng nhập"
 			onSectionChange={onSectionChange}
 		>
 			<FormProvider form={form}>
@@ -39,12 +39,12 @@ export const GuestUser: React.FC<GuestUserProps> = ({
 					/>
 					<Checkbox
 						name="createAccount"
-						label="I want to create account"
+						label="Tôi muốn tạo tài khoản"
 						data-testid={"createAccountCheckbox"}
 					/>
 					{createAccount && (
 						<div className="mt-2">
-							<PasswordInput name="password" label="Password (minimum 8 characters)" required />
+							<PasswordInput name="password" label="Mật khẩu (tối thiểu 8 ký tự)" required />
 						</div>
 					)}
 				</div>

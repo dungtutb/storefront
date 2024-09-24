@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { LinkWithChannel } from "../atoms/LinkWithChannel";
-import { formatDate, formatMoney, getHrefForVariant } from "@/lib/utils";
 import { type OrderDetailsFragment } from "@/gql/graphql";
+import { formatDate, formatMoney, getHrefForVariant } from "@/lib/utils";
 import { PaymentStatus } from "@/ui/components/PaymentStatus";
 
 type Props = {
@@ -86,7 +86,7 @@ export const OrderListItem = ({ order }: Props) => {
 															{product.name}
 														</LinkWithChannel>
 														{item.variant.name !== item.variant.id && Boolean(item.variant.name) && (
-															<p className="mt-1">Variant: {item.variant.name}</p>
+															<p className="mt-1">Sản phẩm: {item.variant.name}</p>
 														)}
 													</div>
 												</div>

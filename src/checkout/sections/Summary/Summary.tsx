@@ -1,13 +1,12 @@
-import { type FC } from "react";
 import clsx from "clsx";
-import { SummaryItem, type SummaryLine } from "./SummaryItem";
+import { type FC } from "react";
 import { PromoCodeAdd } from "./PromoCodeAdd";
+import { SummaryItem, type SummaryLine } from "./SummaryItem";
+import { SummaryItemMoneyEditableSection } from "./SummaryItemMoneyEditableSection";
 import { SummaryMoneyRow } from "./SummaryMoneyRow";
 import { SummaryPromoCodeRow } from "./SummaryPromoCodeRow";
-import { SummaryItemMoneyEditableSection } from "./SummaryItemMoneyEditableSection";
 import { ChevronDownIcon } from "@/checkout/ui-kit/icons";
 
-import { getFormattedMoney } from "@/checkout/lib/utils/money";
 import { Divider, Money, Title } from "@/checkout/components";
 import {
 	type CheckoutLineFragment,
@@ -15,8 +14,9 @@ import {
 	type Money as MoneyType,
 	type OrderLineFragment,
 } from "@/checkout/graphql";
-import { SummaryItemMoneySection } from "@/checkout/sections/Summary/SummaryItemMoneySection";
 import { type GrossMoney, type GrossMoneyWithTax } from "@/checkout/lib/globalTypes";
+import { getFormattedMoney } from "@/checkout/lib/utils/money";
+import { SummaryItemMoneySection } from "@/checkout/sections/Summary/SummaryItemMoneySection";
 
 interface SummaryProps {
 	editable?: boolean;
@@ -48,7 +48,7 @@ export const Summary: FC<SummaryProps> = ({
 		>
 			<details open className="group">
 				<summary className="-mb-2 flex cursor-pointer flex-row items-center pt-4">
-					<Title>Summary</Title>
+					<Title>Tóm tắt</Title>
 					<ChevronDownIcon className="mb-2 group-open:rotate-180" />
 				</summary>
 				<ul className="py-2" data-testid="SummaryProductList">
@@ -70,7 +70,7 @@ export const Summary: FC<SummaryProps> = ({
 				</>
 			)}
 			<div className="mt-4 flex max-w-full flex-col">
-				<SummaryMoneyRow label="Subtotal" money={subtotalPrice?.gross} ariaLabel="subtotal price" />
+				<SummaryMoneyRow label="Tổng tiền hàng" money={subtotalPrice?.gross} ariaLabel="subtotal price" />
 				{voucherCode && (
 					<SummaryPromoCodeRow
 						editable={editable}
@@ -92,13 +92,13 @@ export const Summary: FC<SummaryProps> = ({
 						negative
 					/>
 				))}
-				<SummaryMoneyRow label="Shipping cost" ariaLabel="shipping cost" money={shippingPrice?.gross} />
+				<SummaryMoneyRow label="Tổng tiền phí vận chuyển" ariaLabel="shipping cost" money={shippingPrice?.gross} />
 				<Divider className="my-4" />
 				<div className="flex flex-row items-baseline justify-between pb-4">
 					<div className="flex flex-row items-baseline">
-						<p className="font-bold">Total price</p>
+						<p className="font-bold">Tổng thanh toán</p>
 						<p color="secondary" className="ml-2">
-							includes {getFormattedMoney(totalPrice?.tax)} tax
+							bao gồm {getFormattedMoney(totalPrice?.tax)} thuế
 						</p>
 					</div>
 					<Money ariaLabel="total price" money={totalPrice?.gross} data-testid="totalOrderPrice" />

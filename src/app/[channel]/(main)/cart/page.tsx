@@ -33,7 +33,7 @@ export default async function Page({ params }: { params: { channel: string } }) 
 
 	return (
 		<section className="mx-auto max-w-7xl p-8">
-			<h1 className="mt-8 text-3xl font-bold text-neutral-900">Your Shopping Cart</h1>
+			<h1 className="mt-8 text-3xl font-bold text-neutral-900">Giỏ hàng của bạn</h1>
 			<form className="mt-12">
 				<ul
 					data-testid="CartProductList"
@@ -66,7 +66,7 @@ export default async function Page({ params }: { params: { channel: string } }) 
 										</LinkWithChannel>
 										<p className="mt-1 text-sm text-neutral-500">{item.variant?.product?.category?.name}</p>
 										{item.variant.name !== item.variant.id && Boolean(item.variant.name) && (
-											<p className="mt-1 text-sm text-neutral-500">Variant: {item.variant.name}</p>
+											<p className="mt-1 text-sm text-neutral-500">Sản phẩm: {item.variant.name}</p>
 										)}
 									</div>
 									<p className="text-right font-semibold text-neutral-900">
@@ -74,7 +74,7 @@ export default async function Page({ params }: { params: { channel: string } }) 
 									</p>
 								</div>
 								<div className="flex justify-between">
-									<div className="text-sm font-bold">Qty: {item.quantity}</div>
+									<div className="text-sm font-bold">Số lượng: {item.quantity}</div>
 									<DeleteLineButton checkoutId={checkoutId} lineId={item.id} />
 								</div>
 							</div>
@@ -86,8 +86,8 @@ export default async function Page({ params }: { params: { channel: string } }) 
 					<div className="rounded border bg-neutral-50 px-4 py-2">
 						<div className="flex items-center justify-between gap-2 py-2">
 							<div>
-								<p className="font-semibold text-neutral-900">Your Total</p>
-								<p className="mt-1 text-sm text-neutral-500">Shipping will be calculated in the next step</p>
+								<p className="font-semibold text-neutral-900">Tổng thanh toán</p>
+								<p className="mt-1 text-sm text-neutral-500">Vận chuyển sẽ được tính ở bước tiếp theo</p>
 							</div>
 							<div className="font-medium text-neutral-900">
 								{formatMoney(checkout.totalPrice.gross.amount, checkout.totalPrice.gross.currency)}

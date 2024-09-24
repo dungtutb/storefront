@@ -1,18 +1,18 @@
 import edjsHTML from "editorjs-html";
+import { type Metadata, type ResolvingMetadata } from "next";
 import { revalidatePath } from "next/cache";
 import { notFound } from "next/navigation";
-import { type ResolvingMetadata, type Metadata } from "next";
-import xss from "xss";
+import { type Product, type WithContext } from "schema-dts";
 import { invariant } from "ts-invariant";
-import { type WithContext, type Product } from "schema-dts";
+import xss from "xss";
 import { AddButton } from "./AddButton";
 import { VariantSelector } from "@/ui/components/VariantSelector";
-import { ProductImageWrapper } from "@/ui/atoms/ProductImageWrapper";
-import { executeGraphQL } from "@/lib/graphql";
-import { formatMoney, formatMoneyRange } from "@/lib/utils";
-import { CheckoutAddLineDocument, ProductDetailsDocument, ProductListDocument } from "@/gql/graphql";
-import * as Checkout from "@/lib/checkout";
 import { AvailabilityMessage } from "@/ui/components/AvailabilityMessage";
+import { ProductImageWrapper } from "@/ui/atoms/ProductImageWrapper";
+import { formatMoney, formatMoneyRange } from "@/lib/utils";
+import { executeGraphQL } from "@/lib/graphql";
+import * as Checkout from "@/lib/checkout";
+import { CheckoutAddLineDocument, ProductDetailsDocument, ProductListDocument } from "@/gql/graphql";
 
 export async function generateMetadata(
 	{

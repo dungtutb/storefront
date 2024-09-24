@@ -2,7 +2,7 @@ import { invariant } from "ts-invariant";
 import { RootWrapper } from "./pageWrapper";
 
 export const metadata = {
-	title: "Checkout",
+	title: "Thanh toán",
 };
 
 export default function CheckoutPage({
@@ -21,10 +21,10 @@ export default function CheckoutPage({
 			<section className="mx-auto flex min-h-dvh max-w-7xl flex-col p-8">
 				<div className="flex items-center font-bold">
 					<a aria-label="homepage" href="/">
-						ACME
+						Thoatran.shop
 					</a>
 				</div>
-				<h1 className="mt-8 text-3xl font-bold text-neutral-900">Checkout</h1>
+				<h1 className="mt-8 text-3xl font-bold text-neutral-900">Thanh toán</h1>
 
 				<section className="mb-12 mt-6 flex-1">
 					<RootWrapper saleorApiUrl={process.env.NEXT_PUBLIC_SALEOR_API_URL} />

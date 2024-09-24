@@ -4,7 +4,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { LinkWithChannel } from "../atoms/LinkWithChannel";
 
-const companyName = "ACME";
+const companyName = "Thoatran.shop";
 
 export const Logo = () => {
 	const pathname = usePathname();

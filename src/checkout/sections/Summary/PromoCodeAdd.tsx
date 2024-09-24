@@ -1,12 +1,12 @@
 import clsx from "clsx";
-import React, { type FC } from "react";
+import { type FC } from "react";
 import { Button } from "@/checkout/components/Button";
 import { TextInput } from "@/checkout/components/TextInput";
 import { useCheckoutAddPromoCodeMutation } from "@/checkout/graphql";
-import { type Classes } from "@/checkout/lib/globalTypes";
-import { useFormSubmit } from "@/checkout/hooks/useFormSubmit";
-import { FormProvider } from "@/checkout/hooks/useForm/FormProvider";
 import { useForm } from "@/checkout/hooks/useForm";
+import { FormProvider } from "@/checkout/hooks/useForm/FormProvider";
+import { useFormSubmit } from "@/checkout/hooks/useFormSubmit";
+import { type Classes } from "@/checkout/lib/globalTypes";
 
 interface PromoCodeFormData {
 	promoCode: string;
@@ -39,7 +39,7 @@ export const PromoCodeAdd: FC<Classes> = ({ className }) => {
 	return (
 		<FormProvider form={form}>
 			<div className={clsx("relative my-4", className)}>
-				<TextInput required={false} name="promoCode" label="Add gift card or discount code" />
+				<TextInput required={false} name="promoCode" label="Thêm thẻ quà tặng hoặc mã giảm giá" />
 				{showApplyButton && (
 					<Button
 						className="absolute bottom-2.5 right-3"

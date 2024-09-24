@@ -8,24 +8,27 @@ import { LinkWithChannel } from "@/ui/atoms/LinkWithChannel";
 export function PostListItem({ article }: { article: Article }) {
 	// const { id, content } = blog;
 	// const contentHtml = content ? parser.parse(JSON.parse(content)) : null;
-    const imageUrl = getStrapiMedia(article.cover.url);
-    const author = article.author;
-    const avatarUrl = getStrapiMedia(author.avatar.url);
+	const imageUrl = getStrapiMedia(article.cover.url);
+	const author = article.author;
+	const avatarUrl = getStrapiMedia(author.avatar.url);
 	return (
 		<div className="flex flex-col overflow-hidden rounded-lg border bg-white">
+			<div className="flex-1">
 				<LinkWithChannel
 					href={"/blogs/" + article.slug}
 					className="group relative block h-48 overflow-hidden bg-gray-100"
 				>
-					{imageUrl && (<Image
-						src={imageUrl}
-						width={600}
-						height={600}
-						alt={""}
-						className="h-full w-full object-cover object-center"
-					/>)}
+					{imageUrl && (
+						<Image
+							src={imageUrl}
+							width={600}
+							height={600}
+							alt={""}
+							className="h-full w-full object-cover object-center"
+						/>
+					)}
 				</LinkWithChannel>
-			<div className="flex-1"></div>
+			</div>
 			<div className="flex flex-col p-4 sm:p-6">
 				<h2 className="mb-2 text-lg font-semibold text-gray-800">
 					<LinkWithChannel
@@ -35,17 +38,19 @@ export function PostListItem({ article }: { article: Article }) {
 						{article.title}
 					</LinkWithChannel>
 				</h2>
-
+				<p className="mb-4 text-gray-500">{article.description}</p>
 				<div className="mt-auto flex items-end justify-between">
 					<div className="flex items-center gap-2">
 						<div className="h-10 w-10 shrink-0 overflow-hidden rounded-full bg-gray-100">
-							{ avatarUrl && (<Image
-								src={avatarUrl}
-								width={64}
-								height={64}
-								alt={""}
-								className="h-full w-full object-cover object-center"
-							/>)}
+							{avatarUrl && (
+								<Image
+									src={avatarUrl}
+									width={64}
+									height={64}
+									alt={""}
+									className="h-full w-full object-cover object-center"
+								/>
+							)}
 						</div>
 
 						<div>

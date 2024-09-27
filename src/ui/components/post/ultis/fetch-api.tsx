@@ -32,3 +32,36 @@ export async function fetchAPI<T>(path: string, urlParamsObject = {}, options = 
 	  throw new Error(`Please check if your server is running and you set all the required tokens.`);
 	}
   }
+
+
+  export async function fileSystemAPI<T>(path: string, options = {}): Promise<T> {
+	try {
+	  // Merge default and user options
+	  const mergedOptions = {
+		next: { revalidate: 60 },
+		headers: {
+		  "Content-Type": "application/json",
+		},
+		...options,
+	  };
+  
+	  // Build request URL
+	  const requestUrl = `${getStrapiURL(`/file-system${path}`)}`;
+  
+	  // Trigger API call
+
+	  const response = await fetch(requestUrl, mergedOptions);
+  
+	  // Handle response error
+	  if (!response.ok) {
+		throw new Error(`Error fetching API: ${response.statusText}`);
+	  }
+  
+	  // Parse response as JSON and cast it to the expected generic type T
+	  const data = (await response.json()) as T;
+	  return data;
+	} catch (error) {
+	  console.error(error);
+	  throw new Error(`Please check if your server is running and you set all the required tokens.`);
+	}
+  }

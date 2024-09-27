@@ -1,3 +1,4 @@
+import { type FileItem } from "./(main)/blogs/[slug]/page";
 import {
 	ProductListByCollectionDocument,
 } from "@/gql/graphql";
@@ -5,6 +6,8 @@ import { executeGraphQL } from "@/lib/graphql";
 import { Carousel } from "@/ui/components/Carousel";
 import { Footer } from "@/ui/components/Footer";
 import { Header } from "@/ui/components/Header";
+import { getStrapiMedia } from "@/ui/components/post/ultis/api-helper";
+import { fileSystemAPI } from "@/ui/components/post/ultis/fetch-api";
 import { PostSection } from "@/ui/components/PostSection";
 import { ProductList } from "@/ui/components/ProductList";
 import { ServiceSection } from "@/ui/components/ServiceSection";
@@ -13,6 +16,19 @@ export const metadata = {
 	title: "Thoa Tran Storefront",
 	description: "Storefront platform for global brands.",
 };
+
+interface Folder{
+	path: string;
+	files: FileItem[];
+}
+
+async function getImagesByFoldername(folderName: string) {
+	const token = process.env.NEXT_PUBLIC_STRAPI_API_TOKEN;
+	const path = `/folder?path=${folderName}`;
+	const options = { headers: { Authorization: `Bearer ${token}` } };
+	const response = await fileSystemAPI<Folder>(path, options);
+	return response.files;
+}
 
 export default async function Page({ params }: { params: { channel: string } }) {
 	const data = await executeGraphQL(ProductListByCollectionDocument, {
@@ -24,7 +40,8 @@ export default async function Page({ params }: { params: { channel: string } }) 
 		revalidate: 60,
 	});
 
-	const images = ["/banner.jpg", "/banner_1.jpg"];
+	const files = await getImagesByFoldername("banner_running");
+	const images = files.map(({url}) => {return getStrapiMedia(url)});
 
 	return (
 		<>

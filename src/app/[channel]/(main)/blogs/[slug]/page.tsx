@@ -6,6 +6,7 @@ import { fetchAPI } from "@/ui/components/post/ultis/fetch-api";
 import { postRenderer } from "@/ui/components/post/ultis/post-renderer";
 
 export interface FileItem {
+	name: string;
 	url: string;
 	alternativeText: string;
 }

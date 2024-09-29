@@ -14,15 +14,15 @@ export const NavLinks = async ({ channel, mobile }: { channel: string; mobile: b
 			channel: channel
 		},
 		{
+			title: "AI",
+			path: "/categories/app-ai",
+			channel: channel
+		},
+		{
 			title: "HỌC TẬP",
 			path: "/categories/hoc-tap",
 			channel: channel
 		},
-		// {
-		// 	title: "Tạo website con",
-		// 	path: "#",
-		// 	channel: channel
-		// },
 		{
 			title: "GIẢI TRÍ",
 			path: "/categories/giai-tri",

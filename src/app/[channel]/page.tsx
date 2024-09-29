@@ -41,8 +41,9 @@ export default async function Page({ params }: { params: { channel: string } }) 
 	});
 
 	const files = await getImagesByFoldername("banner_running");
+	files.sort((a, b) => a.name.localeCompare(b.name));
 	const images = files.map(({url}) => {return getStrapiMedia(url)});
-
+	
 	return (
 		<>
 			<div className="bg-gray-100">

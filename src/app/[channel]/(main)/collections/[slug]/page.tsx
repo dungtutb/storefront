@@ -33,7 +33,7 @@ export default async function Page({ params }: { params: { slug: string; channel
 	const { name, products } = collection;
 
 	return (
-		<div className="mx-auto max-w-7xl p-8 pb-16">
+		<div className="mx-auto max-w-7xl p-4 pb-8 md:p-8 md:pb-16">
 			<h1 className="pb-8 text-xl font-semibold">{name}</h1>
 			<ProductList products={products.edges.map((e) => e.node)} />
 		</div>

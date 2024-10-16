@@ -33,7 +33,7 @@ export default async function Page({ params }: { params: { slug: string; channel
 	const { products } = category;
 
 	return (
-		<div className="mx-auto max-w-7xl p-8 pb-16">
+		<div className="mx-auto max-w-7xl p-4 pb-8 md:p-8 md:pb-16">
 			<div className="mx-auto flex max-w-screen-2xl flex-col gap-2 px-4 pb-4 text-black md:flex-row">
 				<div className="order-first w-full flex-none md:max-w-[125px]">
 					{<CategoryList channel={params.channel} />}

@@ -9,7 +9,7 @@ import { AddButton } from "./AddButton";
 import { VariantSelector } from "@/ui/components/VariantSelector";
 import { AvailabilityMessage } from "@/ui/components/AvailabilityMessage";
 import { ProductImageWrapper } from "@/ui/atoms/ProductImageWrapper";
-import { formatMoney, formatMoneyRange } from "@/lib/utils";
+import { formatMoney } from "@/lib/utils";
 import { executeGraphQL } from "@/lib/graphql";
 import * as Checkout from "@/lib/checkout";
 import { CheckoutAddLineDocument, ProductDetailsDocument, ProductListDocument } from "@/gql/graphql";
@@ -132,12 +132,21 @@ export default async function Page({
 	const price = selectedVariant?.pricing?.price?.gross
 		? formatMoney(selectedVariant.pricing.price.gross.amount, selectedVariant.pricing.price.gross.currency)
 		: isAvailable
-		  ? formatMoneyRange({
-					start: product?.pricing?.priceRange?.start?.gross,
-					stop: product?.pricing?.priceRange?.stop?.gross,
-		    })
+		  ? product?.pricing?.priceRange?.start?.gross && formatMoney(product?.pricing?.priceRange?.start?.gross.amount, product?.pricing?.priceRange?.start?.gross.currency)
 		  : "";
-
+	
+	const priceUndiscounted = selectedVariant?.pricing?.priceUndiscounted?.gross
+		? formatMoney(selectedVariant.pricing.priceUndiscounted.gross.amount, selectedVariant.pricing.priceUndiscounted.gross.currency)
+		: isAvailable
+			? product?.pricing?.priceRangeUndiscounted?.start?.gross && formatMoney(product?.pricing?.priceRangeUndiscounted?.start?.gross.amount, product?.pricing?.priceRangeUndiscounted?.start?.gross.currency)
+			: "";
+	
+	const discount = selectedVariant?.pricing?.price?.gross
+	? Math.ceil((selectedVariant.pricing.price.gross.amount - selectedVariant.pricing.priceUndiscounted.gross.amount) * 100 / selectedVariant.pricing.priceUndiscounted.gross.amount)
+	: isAvailable
+	  ? Math.ceil((product?.pricing?.priceRange?.start?.gross.amount - product?.pricing?.priceRangeUndiscounted?.start?.gross.amount) * 100 / product?.pricing?.priceRangeUndiscounted?.start?.gross.amount)
+	  : 0;
+		
 	const productJsonLd: WithContext<Product> = {
 		"@context": "https://schema.org",
 		"@type": "Product",
@@ -196,8 +205,8 @@ export default async function Page({
 						<h1 className="mb-4 flex-auto text-3xl font-medium tracking-tight text-neutral-900">
 							{product?.name}
 						</h1>
-						<p className="mb-8 text-sm " data-testid="ProductElement_Price">
-							{price}
+						<p className="mb-8 text-sm leading-3" data-testid="ProductElement_Price">
+						{price} {discount < 0 && (<s className="text-gray-400">{priceUndiscounted}</s>)} {discount < 0 && (<span className="bg-red-50 text-red-600 text-sm font-medium me-2 px-1 py-1 rounded dark:bg-red-600 dark:text-red-50">{discount}%</span>)}
 						</p>
 
 						{variants && (

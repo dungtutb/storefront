@@ -54,7 +54,7 @@ export default async function Page({
 	});
 
 	return (
-		<section className="mx-auto max-w-7xl p-8 pb-16">
+		<section className="mx-auto max-w-7xl p-4 pb-8 md:p-8 md:pb-16">
 			{products.totalCount && products.totalCount > 0 ? (
 				<div>
 					<h1 className="pb-8 text-xl font-semibold">Search results for &quot;{searchValue}&quot;:</h1>

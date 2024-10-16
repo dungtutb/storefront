@@ -34,7 +34,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
 	const contentHtml = content ? parser.parse(JSON.parse(content)) : null;
 
 	return (
-		<div className="mx-auto max-w-7xl p-8 pb-16">
+		<div className="mx-auto max-w-7xl p-4 pb-8 md:p-8 md:pb-16">
 			<h1 className="text-3xl font-semibold">{title}</h1>
 			{contentHtml && (
 				<div className="prose">

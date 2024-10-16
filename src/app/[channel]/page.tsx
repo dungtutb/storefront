@@ -13,7 +13,7 @@ import { ProductList } from "@/ui/components/ProductList";
 import { ServiceSection } from "@/ui/components/ServiceSection";
 
 export const metadata = {
-	title: "Thoa Tran Storefront",
+	title: "TaiKhoanBK Shop",
 	description: "Storefront platform for global brands.",
 };
 

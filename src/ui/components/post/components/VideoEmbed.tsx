@@ -1,6 +1,5 @@
 // components/VideoEmbed.tsx
 
-import React from "react";
 
 interface VideoEmbedProps {
   id: number;
@@ -23,7 +22,7 @@ const getEmbedUrl = (videoUrl: string): string | null => {
   return null;
 };
 
-export default function VideoEmbed({ data }: { data: VideoEmbedProps }) {
+export function VideoEmbed({ data }: { data: VideoEmbedProps }) {
   const embedUrl = getEmbedUrl(data.url);
 
   if (!embedUrl) return <div>Invalid video URL</div>;

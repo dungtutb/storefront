@@ -32,6 +32,26 @@ query ProductDetails($slug: String!, $channel: String!) {
 					}
 				}
 			}
+			discount {
+				gross {
+					amount
+					currency
+				}
+			}
+			priceRangeUndiscounted {
+				start {
+					gross {
+						amount
+						currency
+					}
+				}
+				stop {
+					gross {
+						amount
+						currency
+					}
+				}
+			}
 		}
 	}
 }

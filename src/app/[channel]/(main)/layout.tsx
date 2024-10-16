@@ -4,7 +4,7 @@ import { Header } from "@/ui/components/Header";
 import { ServiceSection } from "@/ui/components/ServiceSection";
 
 export const metadata = {
-	title: "Thoa Tran Shop",
+	title: "TaiKhoanBK",
 	description: "Starter pack for building performant e-commerce experiences.",
 };
 

@@ -2,7 +2,7 @@ import { type ReactNode } from "react";
 import { AuthProvider } from "@/ui/components/AuthProvider";
 
 export const metadata = {
-	title: "Thoa Tran Shop",
+	title: "TaiKhoanBK",
 	description: "Starter pack for building performant e-commerce experiences.",
 };
 

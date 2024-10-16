@@ -3,6 +3,18 @@ fragment VariantDetails on ProductVariant {
 	name
 	quantityAvailable
 	pricing {
+		discount {
+			gross {
+				amount
+				currency
+			}
+		}
+		priceUndiscounted {
+			gross {
+				amount
+				currency
+			}
+		}
 		price {
 			gross {
 				currency

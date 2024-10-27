@@ -5,7 +5,7 @@ import { PostList, type APIResponse, type Article, type Meta } from "./post/Post
 import { fetchAPI } from "./post/ultis/fetch-api";
 import Loading from "@/app/[channel]/(main)/products/loading";
 
-export function PostSection({ loadMore, limit }: { loadMore: boolean, limit: number }) {
+export function PostSection({ loadMore, limit }: { loadMore: boolean; limit: number }) {
 	const [meta, setMeta] = useState<Meta | undefined>();
 	const [data, setData] = useState<Article[]>([]);
 	const [isLoading, setLoading] = useState(true);
@@ -70,28 +70,27 @@ export function PostSection({ loadMore, limit }: { loadMore: boolean, limit: num
 	if (isLoading) return <Loading />;
 
 	return (
-		<div className="bg-gray-200 py-2 md:py-4">
-			<div className="mx-auto max-w-7xl px-4 md:px-8">
-				<PostList data={data}>
-					{loadMore && meta!.pagination.start + meta!.pagination.limit < meta!.pagination.total && (
-						<div className="flex justify-center gap-x-4 border-neutral-200 px-4 pt-4 md:pt-8">
-							<button
-								type="button"
-								className={clsx("px-4 py-2 text-sm font-medium ", {
-                                    "rounded bg-neutral-900 text-neutral-50 hover:bg-neutral-800": meta!.pagination.start + meta!.pagination.limit < meta!.pagination.total,
-                                    "cursor-not-allowed rounded border text-neutral-400": meta!.pagination.start + meta!.pagination.limit >= meta!.pagination.total,
-                                    "pointer-events-none": meta!.pagination.start + meta!.pagination.limit >= meta!.pagination.total,
-                                })}
-								onClick={loadMorePosts}
-							>
-								Xem thêm
-							</button>
-
-
-						</div>
-					)}
-				</PostList>
-			</div>
+		<div className="mx-auto max-w-7xl">
+			<PostList data={data}>
+				{loadMore && meta!.pagination.start + meta!.pagination.limit < meta!.pagination.total && (
+					<div className="flex justify-center gap-x-4 border-neutral-200 px-4 pt-4 md:pt-8">
+						<button
+							type="button"
+							className={clsx("px-4 py-2 text-sm font-medium ", {
+								"rounded bg-neutral-900 text-neutral-50 hover:bg-neutral-800":
+									meta!.pagination.start + meta!.pagination.limit < meta!.pagination.total,
+								"cursor-not-allowed rounded border text-neutral-400":
+									meta!.pagination.start + meta!.pagination.limit >= meta!.pagination.total,
+								"pointer-events-none":
+									meta!.pagination.start + meta!.pagination.limit >= meta!.pagination.total,
+							})}
+							onClick={loadMorePosts}
+						>
+							Xem thêm
+						</button>
+					</div>
+				)}
+			</PostList>
 		</div>
 	);
 }

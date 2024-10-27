@@ -141,9 +141,9 @@ export default async function Page({
 			? product?.pricing?.priceRangeUndiscounted?.start?.gross && formatMoney(product?.pricing?.priceRangeUndiscounted?.start?.gross.amount, product?.pricing?.priceRangeUndiscounted?.start?.gross.currency)
 			: "";
 	
-	const discount = selectedVariant?.pricing?.price?.gross
+	const discount = selectedVariant?.pricing?.price?.gross && selectedVariant.pricing.priceUndiscounted
 	? Math.ceil((selectedVariant.pricing.price.gross.amount - selectedVariant.pricing.priceUndiscounted.gross.amount) * 100 / selectedVariant.pricing.priceUndiscounted.gross.amount)
-	: isAvailable
+	: isAvailable && product?.pricing?.priceRange?.start?.gross && product?.pricing?.priceRangeUndiscounted?.start?.gross
 	  ? Math.ceil((product?.pricing?.priceRange?.start?.gross.amount - product?.pricing?.priceRangeUndiscounted?.start?.gross.amount) * 100 / product?.pricing?.priceRangeUndiscounted?.start?.gross.amount)
 	  : 0;
 		

@@ -36,7 +36,7 @@ export function ProductElement({
 						</p>
 						<h3 className="mt-1 text-sm font-semibold text-neutral-900">{product.name}</h3>
 						<p className="mt-1 text-sm font-medium text-customBg-900 leading-relaxed" data-testid="ProductElement_PriceRange">
-							{price} {discount < 0 && (<s className="text-gray-400">{priceUndiscounted}</s>)} {discount < 0 && (<span className="bg-red-50 text-red-600 text-sm font-medium me-2 px-1 py-1 rounded dark:bg-red-600 dark:text-red-50">{discount}%</span>)}
+							{price} {discount && discount < 0 && (<s className="text-gray-400">{priceUndiscounted}</s>)} {discount && discount < 0 && (<span className="bg-red-50 text-red-600 text-sm font-medium me-2 px-1 py-1 rounded dark:bg-red-600 dark:text-red-50">{discount}%</span>)}
 						</p>
 					</div>
 				</div>
